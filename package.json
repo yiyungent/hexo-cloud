@@ -1,0 +1,23 @@
+{
+  "name": "hexo-cloud",
+  "version": "0.1.0",
+  "description": "Hexo 云插件 | 云服务",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yiyungent/hexo-cloud.git"
+  },
+  "keywords": [
+    "hexo",
+    "hexo-cloud"
+  ],
+  "author": "yiyun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yiyungent/hexo-cloud/issues"
+  },
+  "homepage": "https://github.com/yiyungent/hexo-cloud#readme"
+}
