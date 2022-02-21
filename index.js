@@ -1,10 +1,12 @@
-const utils = new Util(hexo, __dirname);
+"use strict";
+
+const config = require("./lib/config")(hexo);
 
 hexo.extend.injector.register(
   "body_end",
   () => {
     let rtnStr = "";
-    const config = utils.defaultConfigFile('hexo-cloud', 'default.yaml');
+
     if (!config.enable || !config.serverURL) return rtnStr;
 
     let plugincoreVersion = config.plugincoreVersion;

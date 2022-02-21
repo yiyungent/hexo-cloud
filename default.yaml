@@ -1,7 +1,0 @@
-# hexo-cloud
-# For more information: https://github.com/yiyungent/hexo-cloud
-hexocloud:
-  enable: true
-  serverURL: https://api-onetree.moeci.com # Server address url
-  plugincoreVersion: latest # 
-  plugincoreLibURL: https://unpkg.com/@yiyungent/plugincore/dist/PluginCore.min.js
