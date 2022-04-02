@@ -1,6 +1,6 @@
 {
   "name": "hexo-cloud",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Hexo 云插件 | 云服务",
   "main": "index.js",
   "scripts": {

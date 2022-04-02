@@ -16,7 +16,7 @@ hexo.extend.injector.register(
         if (Object.hasOwnProperty.call(config.extensions, key)) {
           const itemConfig = config.extensions[key];
           let itemConfigJsonStr = JSON.stringify(itemConfig);
-          extensionsAddCookie  = extensionsAddCookie + `hexoCloudAddCookie("hexo_cloud.extensions.${key}", '${itemConfigJsonStr}', 24);`;
+          extensionsAddCookie  = extensionsAddCookie + `hexoCloudAddCookie("extensions.${key}", '${itemConfigJsonStr}', 24);`;
         }
       }
     }
