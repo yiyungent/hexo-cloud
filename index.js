@@ -10,13 +10,13 @@ hexo.extend.injector.register(
     if (!config.enable || !config.serverURL) return rtnStr;
 
     //#region 扩展
-    let extensionsAddCookie = "";
+    let extensionsAddStr = "";
     if (config.hasOwnProperty("extensions") && config.extensions) {
       for (const key in config.extensions) {
         if (Object.hasOwnProperty.call(config.extensions, key)) {
           const itemConfig = config.extensions[key];
           let itemConfigJsonStr = JSON.stringify(itemConfig);
-          extensionsAddCookie  = extensionsAddCookie + `hexoCloudAddCookie("extensions.${key}", '${itemConfigJsonStr}', 24);`;
+          extensionsAddStr  = extensionsAddStr + `'hexo_cloud-extensions-${key}': '${itemConfigJsonStr},'`;
         }
       }
     }
@@ -26,24 +26,15 @@ hexo.extend.injector.register(
     rtnStr += `<!-- PluginCore.IPlugins.IWidgetPlugin.Widget(hexo-cloud,${plugincoreVersion},body_end) -->
                <script src="${config.plugincoreLibURL}"></script>
                <script>
-                    function hexoCloudAddCookie(name, value, hours) {
-                      var str = "hexo_cloud." + name + "=" + escape(value);
-                      if (hours > 0) {
-                          var date = new Date();
-                          var ms = hours * 3600 * 1000;
-                          date.setTime(date.getTime() + ms);
-                          str += "; expires=" + date.toGMTString() + ";path=/";
-                      }
-                      document.cookie = str;
-                    }
-                    // 扩展
-                    ${extensionsAddCookie}
                     document.addEventListener('page:loaded', () => {
-                        var hexoPluginCore = new PluginCore({
-                                baseUrl: "${config.serverURL}"
-                            });
-                    
-                        hexoPluginCore.start();
+                      var hexoPluginCore = new PluginCore({
+                        baseUrl: "${config.serverURL}"
+                      });
+                      
+                      // 扩展
+                      hexoPluginCore.start(null, {
+                        ${extensionsAddStr}
+                      });
                     });
                </script>`;
 
