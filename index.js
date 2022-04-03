@@ -16,7 +16,8 @@ hexo.extend.injector.register(
         if (Object.hasOwnProperty.call(config.extensions, key)) {
           const itemConfig = config.extensions[key];
           let itemConfigJsonStr = JSON.stringify(itemConfig);
-          extensionsAddStr  = extensionsAddStr + `'hexo_cloud_extensions_${key}': '${itemConfigJsonStr}',`;
+          // 注意: 这里使用规范的 自定义 header, 当然更规范应该用 X- 开头, 并使用 X-Aaa-Bbb 命名
+          extensionsAddStr  = extensionsAddStr + `'hexo-cloud-extensions-${key}': '${itemConfigJsonStr}',`;
         }
       }
     }
